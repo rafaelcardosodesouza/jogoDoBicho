@@ -10,16 +10,16 @@ import java.util.Vector;
 
 public class Aposta {
 
-    private static Double valorAposta;
-    private static Jogador jogador;
+    private  Double valorAposta;
+    private  Jogador jogador;
     private PremioGrupo grupo;
     private PremioMilharSeca milhar;
-    private static PremioCentenaSeca centena;
+    private  PremioCentenaSeca centena;
     private PremioDezena dezena;
 
-    private Vector<Integer> vectmilhar;
-    private static Vector<Integer> vectcentena;
-    private Vector<Integer> vectDezena;
+    private Integer numeroMilhar;
+    private  Integer numeroCentena;
+    private Integer numeroDezena;
 
 
     /**
@@ -34,11 +34,11 @@ public class Aposta {
     /**
      * Aposta com milhar
      **/
-    public Aposta(Double saldoJogador, Jogador jogador, PremioMilharSeca milhar, Vector<Integer> vectmilhar) {
-        this.valorAposta = saldoJogador;
+    public Aposta(Double saldoJogador, Jogador jogador, PremioMilharSeca milhar, Integer numeroMilhar) {
+        valorAposta = saldoJogador;
         this.jogador = jogador;
         this.milhar = milhar;
-        this.vectmilhar = vectmilhar;
+        this.numeroMilhar = numeroMilhar;
     }
 
 
@@ -46,21 +46,21 @@ public class Aposta {
      * Aposta com centena
      **/
 
-    public Aposta(Double saldoJogador, Jogador jogador, PremioCentenaSeca centena, Vector<Integer> vectcentena) {
-        this.valorAposta = saldoJogador;
+    public Aposta(Double saldoJogador, Jogador jogador, PremioCentenaSeca centena, Integer numeroCentena) {
+        valorAposta = saldoJogador;
         this.jogador = jogador;
         this.centena = centena;
-        this.vectcentena = vectcentena;
+        this.numeroCentena = numeroCentena;
     }
 
     /**
      * Aposta com dezena
      **/
-    public Aposta(Double saldoJogador, Jogador jogador, PremioDezena dezena, Vector<Integer> vectDezena) {
-        this.valorAposta = saldoJogador;
+    public Aposta(Double saldoJogador, Jogador jogador, PremioDezena dezena, Integer numeroDezena) {
+        valorAposta = saldoJogador;
         this.jogador = jogador;
         this.dezena = dezena;
-        this.vectDezena = vectDezena;
+        this.numeroDezena = numeroDezena;
     }
 
 
@@ -117,46 +117,59 @@ public class Aposta {
         this.dezena = dezena;
     }
 
-    public Vector<Integer> getVectmilhar() {
-        return vectmilhar;
+    public Integer getNumeroMilhar() {
+        return numeroMilhar;
     }
 
-    public void setVectmilhar(Vector<Integer> vectmilhar) {
-        this.vectmilhar = vectmilhar;
+    public void setNumeroMilhar(Integer numeroMilhar) {
+        this.numeroMilhar = numeroMilhar;
     }
 
-    public Vector<Integer> getVectcentena() {
-        return vectcentena;
+    public Integer getNumeroCentena() {
+        return numeroCentena;
     }
 
-    public void setVectcentena(Vector<Integer> vectcentena) {
-        this.vectcentena = vectcentena;
+    public void setNumeroCentena(Integer numeroCentena) {
+        this.numeroCentena = numeroCentena;
     }
 
-    public Vector<Integer> getVectDezena() {
-        return vectDezena;
+    public Integer getNumeroDezena() {
+        return numeroDezena;
     }
 
-    public void setVectDezena(Vector<Integer> vectDezena) {
-        this.vectDezena = vectDezena;
+    public void setNumeroDezena(Integer numeroDezena) {
+        this.numeroDezena = numeroDezena;
     }
 
     /**
      * Logica de realizar a aposta
      **/
 
-    public static String detalhes() {
+    public String detalhes() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("*********************\n");
         stringBuilder.append("**     Aposta:     **\n");
         stringBuilder.append("*********************\n");
 
-        stringBuilder.append("valorAposta: R$").append(String.format("%.2f", valorAposta)).append("\n");
-        stringBuilder.append(jogador).append("\n");
-        stringBuilder.append("centena: ").append(Arrays.toString(vectcentena.toArray())).append("\n");
+        stringBuilder.append(this.jogador).append("\n");
+        stringBuilder.append("valorAposta: R$").append(String.format("%.2f", this.valorAposta)).append("\n");
+        stringBuilder.append("centena: ").append(this.numeroCentena).append("\n");
         return stringBuilder.toString();
     }
 
-
+    @Override
+    public String toString() {
+        return "Aposta{" +
+                "valorAposta=" + valorAposta +
+                " \njogador=" + jogador +
+                " \ngrupo=" + grupo +
+                " \nmilhar=" + milhar +
+                " \ncentena=" + centena +
+                " \ndezena=" + dezena +
+                " \nnumeroMilhar=" + numeroMilhar +
+                " \nnumeroCentena=" + numeroCentena +
+                " \nnumeroDezena=" + numeroDezena +
+                '}';
+    }
 }
 

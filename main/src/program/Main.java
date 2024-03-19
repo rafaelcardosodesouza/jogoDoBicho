@@ -39,18 +39,15 @@ public class Main {
                 premio.setValor(valorAposta);
 
                 //Numeros
-                Vector<Integer> numeros = new Vector<>(3);
-                for (int i = 0; i < 3; i++) {
-                    System.out.print("Digite " + (i + 1) + "º numero da aposta: ");
-                    int numero = sc.nextInt();
-                    numeros.add(numero);
-                }
+                System.out.print("Digite a centena: ");
+                Integer numeros = sc.nextInt();
+                Aposta novaAposta = new Aposta(valorAposta, jogador, premio, numeros);
+                aposta.add(novaAposta);
 
-                aposta.add(new Aposta(valorAposta, jogador, premio, numeros));
-                //System.out.println(premio);
+
                 System.out.println("\n");
-                System.out.print(Aposta.detalhes());
-                System.out.println(premio.toString());
+                System.out.print(novaAposta.detalhes());
+
                 break;
             case 2:
                 // código para x == 2 (Dezena Seca)
@@ -65,6 +62,11 @@ public class Main {
                 System.out.println("erro - switch case X");
                 break;
         }
+        System.out.println("*************************************");
+        System.out.println("************    debug    ************");
+        System.out.println("*************************************");
+        System.out.println();
+        System.out.println(aposta);
         sc.close();
 
     }
