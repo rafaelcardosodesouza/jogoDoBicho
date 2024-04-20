@@ -145,7 +145,7 @@ public class Aposta {
      * Logica de realizar a aposta
      **/
 
-    public String detalhes() {
+    public String detalhesCentena() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("*********************\n");
         stringBuilder.append("**     Aposta:     **\n");
